@@ -8,7 +8,7 @@ import numpy as np
 cimport numpy as np
 
 
-cdef extern from "backpropcore/model/_model.hpp" namespace "model":
+cdef extern from "backpropcore/model/model.hpp" namespace "model":
     cdef cppclass CModel:
         void build(string) nogil except +
 

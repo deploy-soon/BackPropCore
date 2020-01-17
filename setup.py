@@ -40,12 +40,10 @@ class BuildExtension(BuildExt):
         build_temp = pathlib.Path(self.build_temp)
         build_temp.mkdir(parents=True, exist_ok=True)
         build_type = "Debug" if self.debug else "Release"
-
         cmake_args = [
             "-DCMAKE_BUILD_TYPE=" + build_type,
             "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=" + CLIB_DIR,
         ]
-
         os.chdir(str(build_temp))
         self.spawn(["cmake", str(cwd)] + cmake_args)
         if not self._dry_run:
@@ -57,7 +55,7 @@ extensions = [
     Extension(name="backpropcore.model._model",
               sources=["backpropcore/model/_model.cpp"],
               include_dirs=["./include", numpy_include_dir],
-              libarary_dirs=LIBRARY_DIRS,
+              library_dirs=LIBRARY_DIRS,
               runtime_library_dirs=LIBRARY_DIRS,
               libraries=["gomp", "cbackpropcore"],
               extra_compile_args=["-fopenmp", "-std=c++14", "-ggdb", "-O3"]),

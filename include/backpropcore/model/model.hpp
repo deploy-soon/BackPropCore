@@ -15,7 +15,7 @@ public:
         cout << "hello soon" << endl;
         cout << ipt << endl;
     }
-}
+};
 
 }
 
