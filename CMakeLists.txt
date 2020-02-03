@@ -14,6 +14,7 @@ add_library(cbackpropcore SHARED ${SOURCES} ${MISC_SRCS})
 include_directories(cbackpropcore "/usr/local/include/eigen3")
 
 set_target_properties(cbackpropcore PROPERTIES VERSION 0.1)
+set_target_properties(cbackpropcore PROPERTIES LINKER_LANGUAGE CXX)
 
 install(TARGETS cbackpropcore
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
